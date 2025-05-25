@@ -1,7 +1,6 @@
-
+"use client";
 
 import { useState } from "react";
-import { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { 
@@ -17,34 +16,29 @@ import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { CodeBlock } from "@/components/CodeBlock";
 
-export const metadata: Metadata = {
-  title: "Playground | UI Component Library",
-  description: "Test and experiment with UI components in real-time",
-};
-
 export default function PlaygroundPage() {
   const [variant, setVariant] = useState("default");
   const [size, setSize] = useState("default");
   const [disabled, setDisabled] = useState(false);
   const [label, setLabel] = useState("Button");
-  
+
   const getButtonCode = () => {
     let code = `<Button`;
-    
+
     if (variant !== "default") {
-      code += ` variant="${variant}"`;
+      code += ` variant=\"${variant}\"`;
     }
-    
+
     if (size !== "default") {
-      code += ` size="${size}"`;
+      code += ` size=\"${size}\"`;
     }
-    
+
     if (disabled) {
       code += ` disabled`;
     }
-    
+
     code += `>${label}</Button>`;
-    
+
     return code;
   };
 
